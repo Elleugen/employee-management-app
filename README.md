@@ -14,6 +14,22 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+If you running an issue while build the project, try to update Angular CLI using this command:
+`npm install -g @angular/cli@latest`
+
+If the @angular-devkit/build-angular depedency is missing, use this command to add it manually:
+`npm install --save-dev @angular-devkit/build-angular`
+
+If you still have the issue, try to clear the npm cache using this command:
+`npm cache clean --force`
+
+and try to removing the node_modules then reinstall the depedencies using this command:
+`rm -rf node_modules`
+`npm install`
+
+
+
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
