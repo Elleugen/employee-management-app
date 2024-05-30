@@ -1,0 +1,19 @@
+.container {
+  gap: 10px 100px;
+}
+
+.add-employee {
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.green-snackbar {
+  background-color: green;
+  color: black;
+}

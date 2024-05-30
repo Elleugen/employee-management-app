@@ -1,0 +1,110 @@
+<div class="add-employee">
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" required>
+      <mat-error *ngIf="employeeForm.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" required>
+      <mat-error *ngIf="employeeForm.get('firstName')?.hasError('required')">
+        FirstName is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required>
+      <mat-error *ngIf="employeeForm.get('lastName')?.hasError('required')">
+        LastName is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error *ngIf="employeeForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Birth Date</mat-label>
+      <input matInput formControlName="birthDate" type="date">
+    </mat-form-field> -->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Birth Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthDate" [max]="today" required>
+      <mat-error *ngIf="employeeForm.get('birthDate')?.hasError('required')">
+        BirthDate is required
+      </mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Basic Salary</mat-label>
+      <input matInput formControlName="basicSalary" type="number" required>
+      <mat-error *ngIf="employeeForm.get('basicSalary')?.hasError('required')">
+        Basic Salary is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Active">Active</mat-option>
+        <mat-option value="Inactive">Inactive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Group</mat-label>
+      <input matInput formControlName="group">
+    </mat-form-field> -->
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Group</mat-label>
+      <mat-select formControlName="group" [formControl]="groupControl">
+        <mat-option>
+          <ngx-mat-select-search [formControl]="groupFilterCtrl"></ngx-mat-select-search>
+        </mat-option>
+        <mat-option *ngFor="let group of filteredGroups | async" [value]="group">
+          {{ group }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Group</mat-label>
+      <mat-select formControlName="group">
+        <mat-option>
+          <ngx-mat-select-search [formControl]="groupFilterCtrl"></ngx-mat-select-search>
+        </mat-option>
+        <mat-option *ngFor="let group of filteredGroups | async" [value]="group">
+          {{ group }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" required>
+      <mat-error *ngIf="employeeForm.get('description')?.hasError('required')">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="secondary" (click)="goBack()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Add Employee</button>
+    <!-- <button mat-raised-button color="primary" type="submit">Add Employee</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Add Employee</button> -->
+    <!-- <div class="container">
+    </div> -->
+  </form>
+</div>
